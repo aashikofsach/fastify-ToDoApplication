@@ -1,7 +1,8 @@
+const { getAllTodos, createTodos } = require("../../../../controllers/todoControllers");
+
 async function todoRouter(fastify, options) {
-  fastify.get("/", (req, res) => {
-    return "todos";
-  });
+  fastify.get("/", getAllTodos);
+  fastify.post("/", createTodos)
 }
 
 module.exports = todoRouter ;

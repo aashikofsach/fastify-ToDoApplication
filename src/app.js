@@ -1,10 +1,17 @@
 const fp = require("fastify-plugin");
 
-const apiRouter = require('./routes/api/apiRouter')
+const apiRouter = require("./routes/api/apiRouter");
+const db = require("./db");
+const todoRepository = require("./repository/todoRepository");
+const todoService = require("./service/todoService");
 
 async function app(fastify, options) {
-  fastify.register(apiRouter, { prefix: "/api" });
-}
+  // order matters here
+  await fastify.register(db);
+  await fastify.register(todoRepository);
+  await fastify.register(todoService);
 
+  await fastify.register(apiRouter, { prefix: "/api" });
+}
 
 module.exports = fp(app);

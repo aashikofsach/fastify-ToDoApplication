@@ -23,7 +23,21 @@ async function createTodos(req, res) {
   });
 }
 
+
+async function getOneTodo(req, res) {
+  const { todoService } = this;
+
+  const response = await todoService.getOne(req.params.id);
+
+  //   return await todoService.create(req.body.todotext);
+
+  return res.status(200).send({
+    response,
+  });
+}
+
 module.exports = {
   getAllTodos,
   createTodos,
+  getOneTodo
 };

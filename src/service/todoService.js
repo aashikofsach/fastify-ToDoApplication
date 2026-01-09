@@ -5,7 +5,7 @@ class TodoService {
     this.todoRepository = todoRepository;
   }
   async getAll() {
-    this.todoRepository.getAll();
+   return this.todoRepository.getAll();
   }
 
   async create(todonext)
@@ -13,7 +13,7 @@ class TodoService {
     return this.todoRepository.create(todonext)
   }
   async getOne(id) {
-    this.todoRepository.getOne(id);
+    return this.todoRepository.getOne(id);
   }
   async deleteOne(id) {
     this.todoRepository.deleteOne(id);

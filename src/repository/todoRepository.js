@@ -4,7 +4,10 @@ class TodoRepository {
   constructor(db) {
     this.db = db;
   }
-  async getAll() {}
+  async getAll() {
+
+    return this.db.todos ;
+  }
 
   async create(todotext)
   {
@@ -15,7 +18,9 @@ class TodoRepository {
     })
     return this.db.todos ;
   }
-  async getOne(id) {}
+  async getOne(id) {
+    return this.db.todos.find((todo)=> todo.id==id)
+  }
   async deleteOne(id) {}
   async deleteAll() {}
 }
